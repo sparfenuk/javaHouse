@@ -4,8 +4,8 @@ public class House {
     public ArrayList<Furniture> furniture;
     private boolean electricity;
 
-    public House(ArrayList<Furniture> furniture) {
-        this.furniture = furniture;
+    public House() {
+        this.furniture = new ArrayList<Furniture>(){};
         this.electricity = true;
     }
     public void turnLightOn(){
@@ -14,8 +14,13 @@ public class House {
     public void turnLightOff(){
         this.electricity = false;
     }
-    public boolean saveAll(){
+    public void saveAll(){
+        for(int i = 0; i < furniture.size() ; i++)
+            Furniture.Serialize(furniture.get(i));
 
-        return true;
+    }
+    public void setAll(){
+        for(int i = 0; i < furniture.size() ; i++)
+            furniture.set(i,Furniture.DeSerialize(furniture.getClass().getName()));
     }
 }
