@@ -5,6 +5,8 @@ public abstract class Furniture implements Serializable {
     private short electricityLevel;
     private Status status;
 
+    public Furniture() {}
+
     public Status getStatus() {
         return status;
     }
@@ -37,8 +39,6 @@ public abstract class Furniture implements Serializable {
     public static Furniture DeSerialize(String className){
         try {
 
-
-
             FileInputStream fis = new FileInputStream(className+ ".frn");
             ObjectInputStream oin = new ObjectInputStream(fis);
             Furniture furniture = (Furniture) oin.readObject();
@@ -60,4 +60,5 @@ public abstract class Furniture implements Serializable {
             return null;
         }
     }
+
 }
