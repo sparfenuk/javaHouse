@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class CoffeeMaker extends Devices {
+public class CoffeeMaker extends Furniture {
     public String Inclusion;
     public int Temperature;
     public Date time;

@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Conditioner extends Devices {
+public class Conditioner extends Furniture {
     public String Inclusion;
     public int Temperature;
     public Date time;

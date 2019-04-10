@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class AlarmСlock extends Devices {
+public class AlarmСlock extends Furniture {
 
     public String Inclusion;
     public int Temperature;

@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class WashingMachine extends Devices {
+public class WashingMachine extends Furniture {
     public String Inclusion;
     public int Temperature;
     public Date time;

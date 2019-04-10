@@ -14,4 +14,8 @@ public class House {
     public void turnLightOff(){
         this.electricity = false;
     }
+    public boolean saveAll(){
+
+        return true;
+    }
 }

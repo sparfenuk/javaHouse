@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Plate extends Devices {
+public class Plate extends Furniture {
 
     public String Inclusion;
     public int Temperature;

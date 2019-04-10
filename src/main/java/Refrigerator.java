@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Refrigerator extends Devices {
+public class Refrigerator extends Furniture {
     public String Inclusion;
     public int Temperature;
     public Date time;
