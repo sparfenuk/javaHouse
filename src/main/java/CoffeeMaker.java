@@ -1,9 +1,32 @@
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CoffeeMaker extends Furniture {
-    public String Inclusion;
-    public int Temperature;
+    public transient String Inclusion;
+    public transient int Temperature;
     public Date time;
+    public transient int UsedWork;
+
+    public void TimerCoffe ( int c, int finsh) {
+        final Timer time = new Timer();
+
+        if (c > 0) {
+            time.schedule(new TimerTask() {
+                int i = 0;
+                @Override
+                public void run() {
+                    if (i >= finsh) {
+                        System.out.println("Таймер завершил свою работу");
+                        time.cancel();
+                        return;
+                    }
+                    System.out.println("Прошло " +c+ " секунды");
+                    i = i + 1;
+                }
+            }, c, c);
+        }
+    }
 
     public String getInclusion() {
         return Inclusion;

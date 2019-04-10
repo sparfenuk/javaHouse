@@ -1,9 +1,10 @@
 import java.util.Date;
 
 public class Refrigerator extends Furniture {
-    public String Inclusion;
-    public int Temperature;
+    public transient String Inclusion;
+    public transient int Temperature;
     public Date time;
+    public transient int UsedWork;
 
     public String getInclusion() {
         return Inclusion;
