@@ -61,4 +61,11 @@ public abstract class Furniture implements Serializable {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Furniture{" +
+                "electricityLevel=" + electricityLevel +
+                ", status=" + status +
+                '}';
+    }
 }
