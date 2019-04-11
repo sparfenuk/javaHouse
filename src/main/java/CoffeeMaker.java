@@ -6,25 +6,21 @@ public class CoffeeMaker extends Furniture {
     public transient String Inclusion;
     public transient int Temperature;
     public Date time;
-    public transient int UsedWork;
+    public transient int ProceCoffe = 0;
 
-    public void TimerCoffe ( int c, int finsh) {
-        final Timer time = new Timer();
-
+    public void TimerCoffe ( int c) {
         if (c > 0) {
-            time.schedule(new TimerTask() {
-                int i = 0;
+            final Timer writeTime = new Timer();
+            writeTime.schedule(new TimerTask() {
+
                 @Override
-                public void run() {
-                    if (i >= finsh) {
-                        System.out.println("Таймер завершил свою работу");
-                        time.cancel();
-                        return;
+                public void run(){
+                    if(ProceCoffe < 100) {
+                        ProceCoffe = ProceCoffe + 10;
+                        System.out.print(ProceCoffe + "% " + '\n');
                     }
-                    System.out.println("Прошло " +c+ " секунды");
-                    i = i + 1;
                 }
-            }, c, c);
+            },1000,c);
         }
     }
 

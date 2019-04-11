@@ -1,31 +1,31 @@
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class AlarmСlock extends Furniture {
 
     public transient String Inclusion;
     public transient int Temperature;
     public Date time;
-    public transient int UsedWork;
+    public transient int ProcesClock= 0;
 
-    public void TimerClock ( int c, int finsh) {
-        final Timer time = new Timer();
+    public void TimerClock ( int c) {
 
         if (c > 0) {
-            time.schedule(new TimerTask() {
-                int i = 0;
+            final Timer writeTime = new Timer();
+            writeTime.schedule(new TimerTask() {
+
                 @Override
-                public void run() {
-                    if (i >= finsh) {
-                        System.out.println("Таймер завершил свою работу");
-                        time.cancel();
-                        return;
+                public void run(){
+                    if(ProcesClock < 100) {
+                        ProcesClock = ProcesClock + 10;
+                        System.out.print(ProcesClock + "% " + '\n');
                     }
-                    System.out.println("Прошло " +c+ " секунды");
-                    i = i + 1;
                 }
-            }, c, c);
+            },1000,c);
         }
     }
 
