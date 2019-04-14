@@ -3,41 +3,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class WashingMachine extends Furniture {
-    public transient String Inclusion;
-    public transient int Temperature;
-    public Date time;
-    public transient int ProcesWashing = 0;
+    private transient Short volume;
+    private transient int temperature;
+    private Date time;
 
 
-    public void TimerWashing( int c) {
-        if (c > 0) {
-            final Timer writeTime = new Timer();
-            writeTime.schedule(new TimerTask() {
 
-                @Override
-                public void run(){
-                    if(ProcesWashing < 100) {
-                        ProcesWashing = ProcesWashing + 10;
-                        System.out.print(ProcesWashing + "% " + '\n');
-                    }
-                }
-            },1000,c);
-        }
-    }
-    public String getInclusion() {
-        return Inclusion;
+
+    public Short getVolume() {
+        return volume;
     }
 
-    public void setInclusion(String inclusion) {
-        Inclusion = inclusion;
+    public void setVolume(Short volume) {
+        this.volume = volume;
     }
 
     public int getTemperature() {
-        return Temperature;
+        return temperature;
     }
 
     public void setTemperature(int temperature) {
-        Temperature = temperature;
+        this.temperature = temperature;
     }
 
     public Date getTime() {

@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class House {
     public ArrayList<Furniture> furniture;
+
     private boolean electricity;
 
     public House() {
@@ -14,12 +15,13 @@ public class House {
     public void turnLightOff(){
         this.electricity = false;
     }
-    public void saveAll(){
+
+    public void saveAllFurniture(){
         for(int i = 0; i < furniture.size() ; i++)
             Furniture.Serialize(furniture.get(i));
 
     }
-    public void setAll(){
+    public void setAllFurniture(){
         for(int i = 0; i < furniture.size() ; i++)
             furniture.set(i,Furniture.DeSerialize(furniture.getClass().getName()));
     }

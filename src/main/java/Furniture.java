@@ -1,17 +1,21 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class Furniture implements Serializable {
-    private short electricityLevel;
-    private Status status;
+    private Short electricityLevel;
+    private Short status;
+    public Short processClock= 0;
+    private int interval;
 
     public Furniture() {}
 
-    public Status getStatus() {
+    public Short getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(Short status) {
         this.status = status;
     }
 
@@ -21,6 +25,39 @@ public abstract class Furniture implements Serializable {
 
     public void setElectricityLevel(short electricityLevel) {
         this.electricityLevel = electricityLevel;
+    }
+
+    public void setInterval(Integer interval) {
+        this.interval = interval;
+    }
+
+    public Furniture(Short electricityLevel, Short status, int interval) {
+        this.electricityLevel = electricityLevel;
+        this.status = status;
+        this.processClock = 0;
+        this.interval = interval;
+    }
+
+    public Furniture(Short electricityLevel, Short status) {
+        this.electricityLevel = electricityLevel;
+        this.status = status;
+        this.processClock = 0;
+        this.interval = 0;
+    }
+
+    public void TimerClock (Short c) {
+        if (c > 0) {
+            final Timer writeTime = new Timer();
+            writeTime.schedule(new TimerTask() {
+                @Override
+                public void run(){
+                    if(processClock < 100) {
+                        processClock = (short)(processClock + 5);
+                        System.out.print(processClock + "%" + '\n');
+                    }
+                }
+            },interval,c);
+        }
     }
 
     public static boolean Serialize(Furniture furniture){
