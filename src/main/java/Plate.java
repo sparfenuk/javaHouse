@@ -2,10 +2,17 @@ import java.util.Date;
 
 public class Plate extends Furniture {
 
-    public transient String inclusion;
-    public transient Integer temperature;
-    public Date time;
+    private transient String inclusion;
+    private transient Integer temperature;
+    private Date time;
     public transient int usedWork;
+
+    public Plate(Short electricityLevel, Short status, String inclusion, Integer temperature, Date time) {
+        super();
+        this.inclusion = inclusion;
+        this.temperature = temperature;
+        this.time = time;
+    }
 
     public String getInclusion() {
         return inclusion;

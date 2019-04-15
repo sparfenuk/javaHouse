@@ -1,11 +1,9 @@
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class CoffeeMaker extends Furniture {
-    public String Volume;
-    public transient int Temperature;
-    public transient Date time;
+    private String Volume;
+    private transient int Temperature;
+    private transient Date time;
 
 
     public String getInclusion() {

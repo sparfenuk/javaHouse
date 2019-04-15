@@ -1,6 +1,4 @@
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class WashingMachine extends Furniture {
     private transient Short volume;
@@ -8,7 +6,12 @@ public class WashingMachine extends Furniture {
     private Date time;
 
 
-
+    public WashingMachine(int interval, Short volume, int temperature, Date time) {
+        super(300000);
+        this.volume = volume;
+        this.temperature = temperature;
+        this.time = time;
+    }
 
     public Short getVolume() {
         return volume;

@@ -7,31 +7,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class Furniture extends Task<Void> implements Serializable {
-
     private Short electricityLevel;
     private Short status;
-    public Short processClock = 0;
+    private Short processClock= 0;
     public Integer timer = 0; //seconds
-
     private int interval;
 
-    public Furniture() {}
+    public Furniture() {
+        electricityLevel = 0;
+        status = Status.ON;
+    }
 
-
-    public Furniture(Short electricityLevel, Short status, int interval) {
-        this.electricityLevel = electricityLevel;
-        this.status = status;
-        this.processClock = 0;
+    public Furniture(int interval) {
+        electricityLevel = 0;
+        status = Status.ON;
         this.interval = interval;
     }
 
-    public Furniture(Short electricityLevel, Short status) {
-        this.electricityLevel = electricityLevel;
-        this.status = status;
-        this.processClock = 0;
-        this.interval = 0;
-    }
 
+    public Short getProcessClock() {
+        return processClock;
+    }
 
     public Short getStatus() {
         return status;
@@ -41,7 +37,7 @@ public abstract class Furniture extends Task<Void> implements Serializable {
         this.status = status;
     }
 
-    public Short getElectricityLevel() {
+    public short getElectricityLevel() {
         return electricityLevel;
     }
 
@@ -52,7 +48,6 @@ public abstract class Furniture extends Task<Void> implements Serializable {
     public void setInterval(Integer interval) {
         this.interval = interval;
     }
-
 
 
     public void TimerClock (Short c) {
@@ -123,6 +118,7 @@ public abstract class Furniture extends Task<Void> implements Serializable {
         this.updateProgress(1,1);
         return null;
     }
+
 
     @Override
     public String toString() {
