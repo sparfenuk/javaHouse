@@ -1,35 +1,22 @@
+import javafx.concurrent.Task;
+import javafx.scene.control.ProgressIndicator;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public abstract class Furniture implements Serializable {
+public abstract class Furniture extends Task<Void> implements Serializable {
+
     private Short electricityLevel;
     private Short status;
-    public Short processClock= 0;
+    public Short processClock = 0;
+    public Integer timer = 0; //seconds
+
     private int interval;
 
     public Furniture() {}
 
-    public Short getStatus() {
-        return status;
-    }
-
-    public void setStatus(Short status) {
-        this.status = status;
-    }
-
-    public short getElectricityLevel() {
-        return electricityLevel;
-    }
-
-    public void setElectricityLevel(short electricityLevel) {
-        this.electricityLevel = electricityLevel;
-    }
-
-    public void setInterval(Integer interval) {
-        this.interval = interval;
-    }
 
     public Furniture(Short electricityLevel, Short status, int interval) {
         this.electricityLevel = electricityLevel;
@@ -44,6 +31,29 @@ public abstract class Furniture implements Serializable {
         this.processClock = 0;
         this.interval = 0;
     }
+
+
+    public Short getStatus() {
+        return status;
+    }
+
+    public void setStatus(Short status) {
+        this.status = status;
+    }
+
+    public Short getElectricityLevel() {
+        return electricityLevel;
+    }
+
+    public void setElectricityLevel(short electricityLevel) {
+        this.electricityLevel = electricityLevel;
+    }
+
+    public void setInterval(Integer interval) {
+        this.interval = interval;
+    }
+
+
 
     public void TimerClock (Short c) {
         if (c > 0) {
@@ -96,6 +106,22 @@ public abstract class Furniture implements Serializable {
             c.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    protected Void call() throws Exception {
+        this.updateProgress(ProgressIndicator.INDETERMINATE_PROGRESS, 1);
+        this.updateMessage("Waiting...");
+        for(int i = 0; i < timer; i++)
+        {
+
+            this.updateProgress((1.0 * i)/timer,1);
+            Thread.sleep(1000);
+
+        }
+        this.updateMessage("Done");
+        this.updateProgress(1,1);
+        return null;
     }
 
     @Override

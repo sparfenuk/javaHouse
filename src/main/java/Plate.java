@@ -2,25 +2,25 @@ import java.util.Date;
 
 public class Plate extends Furniture {
 
-    public transient String Inclusion;
-    public transient int Temperature;
+    public transient String inclusion;
+    public transient Integer temperature;
     public Date time;
-    public transient int UsedWork;
+    public transient int usedWork;
 
     public String getInclusion() {
-        return Inclusion;
+        return inclusion;
     }
 
     public void setInclusion(String inclusion) {
-        Inclusion = inclusion;
+        this.inclusion = inclusion;
     }
 
     public int getTemperature() {
-        return Temperature;
+        return temperature;
     }
 
     public void setTemperature(int temperature) {
-        Temperature = temperature;
+       this.temperature = temperature;
     }
 
     public Date getTime() {
