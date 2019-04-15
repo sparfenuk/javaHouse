@@ -3,12 +3,12 @@ package models;
 import java.util.Date;
 
 public class Refrigerator extends Furniture {
-    private String inclusion;
+    private Integer inclusion;
     private transient int temperature;
     private Date time;
     private int usedWork;
 
-    public Refrigerator(String inclusion, int temperature, Date time, int usedWork) {
+    public Refrigerator(Integer inclusion, int temperature, Date time, int usedWork) {
         super();
         this.inclusion = inclusion;
         this.temperature = temperature;
@@ -16,11 +16,11 @@ public class Refrigerator extends Furniture {
         this.usedWork = usedWork;
     }
 
-    public String getInclusion() {
+    public Integer getInclusion() {
         return inclusion;
     }
 
-    public void setInclusion(String inclusion) {
+    public void setInclusion(Integer inclusion) {
         this.inclusion = inclusion;
     }
 

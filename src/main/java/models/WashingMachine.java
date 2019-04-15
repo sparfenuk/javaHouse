@@ -8,7 +8,7 @@ public class WashingMachine extends Furniture {
     private Date time;
 
 
-    public WashingMachine(int interval, Short volume, int temperature, Date time) {
+    public WashingMachine(Short volume, int temperature, Date time) {
         super(300000);
         this.volume = volume;
         this.temperature = temperature;
