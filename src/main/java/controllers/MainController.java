@@ -51,8 +51,9 @@ public class MainController  {
 
             List<Furniture> objects = new ArrayList<>();
 
-//            objects.add(new AlarmСlock("Clock i guess", 21, new Date(), 120));
-//            objects.add(new AlarmСlock("Clock i guess", 21, new Date(), 0));
+            objects.add(new AlarmСlock(30,new Date(),4000));
+
+
 
           //  house.furniture = (ArrayList<Furniture>) objects;
            // house.saveAllFurniture();
@@ -97,18 +98,18 @@ public class MainController  {
 
 
 
-        ExecutorService executor = Executors.newFixedThreadPool(tableVHouse.getItems().size(), new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread t = new Thread(r);
-                t.setDaemon(true);
-                return t;
-            }
-        });
-        for (Furniture task : tableVHouse.getItems()) {
-            executor.execute(task);
-        }
-       // executeThreads();
+//        ExecutorService executor = Executors.newFixedThreadPool(tableVHouse.getItems().size(), new ThreadFactory() {
+//            @Override
+//            public Thread newThread(Runnable r) {
+//                Thread t = new Thread(r);
+//                t.setDaemon(true);
+//                return t;
+//            }
+//        });
+//        for (Furniture task : tableVHouse.getItems()) {
+//            executor.execute(task);
+//        }
+        executeThreads();
 
 
     }

@@ -1,24 +1,14 @@
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.ProgressBarTableCell;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import models.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
 
 public class main extends Application {
@@ -97,8 +87,9 @@ public class main extends Application {
 //            Scene scene = new Scene(root);
 //            primaryStage.setScene(scene);
 //            primaryStage.show();
+            System.out.println("dsadasdasdasdadasd");
 
-            Parent root = FXMLLoader.load(getClass().getResource("/Table.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Table.fxml"));//
             Scene scene = new Scene(root);
 
             primaryStage.setScene(scene);
@@ -108,19 +99,20 @@ public class main extends Application {
 
 
 
+
         }
 
         public static void main(String[] args){
-            //launch(args);
-            House h = new House();
-            h.furniture.add(new AlarmСlock(30,new Date(),4000));
-            h.furniture.add(new CoffeeMaker((short)30,200,new Date()));
-
-            h.saveAllFurniture();
-
-            h.setAllFurniture();
-
-            System.out.println(h.furniture.get(1).toString());
+            launch(args);
+//            House h = new House();
+//            h.furniture.add(new AlarmСlock(30,new Date(),4000));
+//            h.furniture.add(new CoffeeMaker((short)30,200,new Date(),4000));
+//
+//            h.saveAllFurniture();
+//
+//            h.setAllFurniture();
+//
+//            System.out.println(h.furniture.get(1).toString());
 
         }
     }

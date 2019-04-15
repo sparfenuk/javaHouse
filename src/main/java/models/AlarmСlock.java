@@ -12,11 +12,9 @@ public class AlarmСlock extends Furniture  {
 
     public AlarmСlock( int temperature, Date time, Integer timer) {
         super(2000);
-
         this.temperature = temperature;
         this.time = time;
         super.timer = timer;
-
     }
 
     public int getTemperature() {

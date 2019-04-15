@@ -7,11 +7,12 @@ public class CoffeeMaker extends Furniture {
     private transient Integer Temperature;
     private transient Date time;
 
-    public CoffeeMaker(Short volume, Integer temperature, Date time) {
+    public CoffeeMaker(Short volume, Integer temperature, Date time,Integer timer) {
         super(2000);
         this.volume = volume;
         Temperature = temperature;
         this.time = time;
+        super.timer = timer;
     }
 
     public Short getVolume() {

@@ -9,12 +9,13 @@ public class Conditioner extends Furniture {
     private Date time;
     private transient Short usedWork;
 
-    public Conditioner(int interval, Integer volume, Short temperature, Date time, Short usedWork) {
+    public Conditioner(int interval, Integer volume, Short temperature, Date time, Short usedWork, Integer timer) {
         super(3600000);
         this.volume = volume;
         this.temperature = temperature;
         this.time = time;
         this.usedWork = usedWork;
+        super.timer = timer;
     }
 
     public Integer getVolume() {
