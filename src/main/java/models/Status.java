@@ -1,3 +1,5 @@
+package models;
+
 public final class Status {
     public static short OFF = 0;
     public static short ON = 1;

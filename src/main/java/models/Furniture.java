@@ -1,8 +1,11 @@
+package models;
+
 import javafx.concurrent.Task;
 import javafx.scene.control.ProgressIndicator;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -103,13 +106,33 @@ public abstract class Furniture extends Task<Void> implements Serializable {
         }
     }
 
+    public static List<Furniture> deSerializeAll()
+    {
+
+        List<Furniture> furnitures = new ArrayList<>();
+
+        File dir = new File(".");
+
+        File[] listOfFiles = dir.listFiles(new FilenameFilter() { @Override public boolean accept(File dir, String name) { return name.endsWith(".frn"); } });
+
+        for (File f:listOfFiles
+        ) {
+            if (f.isFile())
+                System.out.println(f.getName().replaceFirst("[.][^.]+$", ""));
+            furnitures.add(Furniture.DeSerialize(f.getName().replaceFirst("[.][^.]+$", "")));
+        }
+
+        return furnitures;
+    }
+
     @Override
     protected Void call() throws Exception {
         this.updateProgress(ProgressIndicator.INDETERMINATE_PROGRESS, 1);
-        this.updateMessage("Waiting...");
+        this.updateMessage("Running...awa");
+
         for(int i = 0; i < timer; i++)
         {
-
+            this.updateMessage("Running..." + i);
             this.updateProgress((1.0 * i)/timer,1);
             Thread.sleep(1000);
 
@@ -122,7 +145,7 @@ public abstract class Furniture extends Task<Void> implements Serializable {
 
     @Override
     public String toString() {
-        return "Furniture{" +
+        return "models.Furniture{" +
                 "electricityLevel=" + electricityLevel +
                 ", status=" + status +
                 '}';

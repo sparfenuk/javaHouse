@@ -1,18 +1,19 @@
+package models;
+
 import java.util.Date;
 
-public class AlarmСlock extends Furniture  {
-
-    private transient String inclusion;
+public class Refrigerator extends Furniture {
+    private String inclusion;
     private transient int temperature;
     private Date time;
+    private int usedWork;
 
-
-    public AlarmСlock(String inclusion, int temperature, Date time, int timer) {
-        super(2000);
+    public Refrigerator(String inclusion, int temperature, Date time, int usedWork) {
+        super();
         this.inclusion = inclusion;
         this.temperature = temperature;
         this.time = time;
-        super.timer = timer;
+        this.usedWork = usedWork;
     }
 
     public String getInclusion() {
@@ -31,7 +32,19 @@ public class AlarmСlock extends Furniture  {
         this.temperature = temperature;
     }
 
+    public Date getTime() {
+        return time;
+    }
+
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public int getUsedWork() {
+        return usedWork;
+    }
+
+    public void setUsedWork(int usedWork) {
+        this.usedWork = usedWork;
     }
 }

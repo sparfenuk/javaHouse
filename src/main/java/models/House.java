@@ -1,14 +1,21 @@
+package models;
+
 import java.util.ArrayList;
 
 public class House {
     public ArrayList<Furniture> furniture;
 
-    private boolean electricity;
+    public boolean electricity;
 
     public House() {
         this.furniture = new ArrayList<Furniture>(){};
         this.electricity = true;
     }
+
+    public House(ArrayList<Furniture> furniture) {
+        this.furniture = furniture;
+    }
+
     public void turnLightOn(){
         this.electricity = true;
     }
