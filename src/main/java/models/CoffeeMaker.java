@@ -3,24 +3,30 @@ package models;
 import java.util.Date;
 
 public class CoffeeMaker extends Furniture {
-    private String Volume;
-    private transient int Temperature;
+    private Short volume;
+    private transient Integer Temperature;
     private transient Date time;
 
-
-    public String getInclusion() {
-        return Volume;
+    public CoffeeMaker(Short volume, Integer temperature, Date time) {
+        super(2000);
+        this.volume = volume;
+        Temperature = temperature;
+        this.time = time;
     }
 
-    public void setInclusion(String inclusion) {
-        Volume = inclusion;
+    public Short getVolume() {
+        return volume;
     }
 
-    public int getTemperature() {
+    public void setVolume(Short volume) {
+        this.volume = volume;
+    }
+
+    public Integer getTemperature() {
         return Temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(Integer temperature) {
         Temperature = temperature;
     }
 

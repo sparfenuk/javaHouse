@@ -4,29 +4,19 @@ import java.util.Date;
 
 public class AlarmСlock extends Furniture  {
 
-    private transient String inclusion;
-    private transient int temperature;
+
+    private transient Short volume;
+    private transient Integer temperature;
     private  Date time;
 
 
-    public AlarmСlock(String inclusion, int temperature, Date time, Integer timer) {
+    public AlarmСlock( int temperature, Date time, Integer timer) {
         super(2000);
-        this.inclusion = inclusion;
+
         this.temperature = temperature;
         this.time = time;
         super.timer = timer;
 
-    }
-
-
-
-
-    public String getInclusion() {
-        return inclusion;
-    }
-
-    public void setInclusion(String inclusion) {
-        this.inclusion = inclusion;
     }
 
     public int getTemperature() {

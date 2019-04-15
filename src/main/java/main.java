@@ -11,9 +11,7 @@ import javafx.scene.control.cell.ProgressBarTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import models.AlarmСlock;
-import models.Furniture;
-import models.Status;
+import models.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,11 +29,11 @@ public class main extends Application {
 
 //
 //
-//            List<Furniture> objects = new ArrayList<>();
-//            objects.add(new AlarmСlock("Clock i guess",21,new Date(), 120));
-//            Furniture f = new AlarmСlock("Clock i guess",21,new Date(),0);
-//
-//            objects.add(f);
+            List<Furniture> objects = new ArrayList<>();
+            objects.add(new AlarmСlock(30,new Date(),4000));
+            Furniture f = new AlarmСlock(30,new Date(),0);
+
+            objects.add(f);
 //
 //           ObservableList<Furniture> obList = FXCollections.observableArrayList(objects);
 //
@@ -113,6 +111,16 @@ public class main extends Application {
         }
 
         public static void main(String[] args){
-            launch(args);
+            //launch(args);
+            House h = new House();
+            h.furniture.add(new AlarmСlock(30,new Date(),4000));
+            h.furniture.add(new CoffeeMaker((short)30,200,new Date()));
+
+            h.saveAllFurniture();
+
+            h.setAllFurniture();
+
+            System.out.println(h.furniture.get(1).toString());
+
         }
     }

@@ -30,6 +30,6 @@ public class House {
     }
     public void setAllFurniture(){
         for(int i = 0; i < furniture.size() ; i++)
-            furniture.set(i,Furniture.DeSerialize(furniture.getClass().getName()));
+            furniture.set(i,Furniture.DeSerialize(furniture.get(i).getClass().getName()));
     }
 }

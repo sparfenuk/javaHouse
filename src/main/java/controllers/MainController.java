@@ -51,8 +51,8 @@ public class MainController  {
 
             List<Furniture> objects = new ArrayList<>();
 
-            objects.add(new AlarmСlock("Clock i guess", 21, new Date(), 120));
-            objects.add(new AlarmСlock("Clock i guess", 21, new Date(), 0));
+//            objects.add(new AlarmСlock("Clock i guess", 21, new Date(), 120));
+//            objects.add(new AlarmСlock("Clock i guess", 21, new Date(), 0));
 
           //  house.furniture = (ArrayList<Furniture>) objects;
            // house.saveAllFurniture();
