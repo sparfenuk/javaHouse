@@ -32,4 +32,18 @@ public class House {
         for(int i = 0; i < furniture.size() ; i++)
             furniture.set(i,Furniture.DeSerialize(furniture.get(i).getClass().getName()));
     }
+    Runnable myRunnable = new Runnable(){
+        @Override
+        public void run() {
+            while (true) {
+                try{
+                    saveAllFurniture();
+                    Thread.sleep(60000);
+                }
+                catch(InterruptedException e){
+                    System.out.println("save error");
+                }
+            }
+        }
+    };
 }
